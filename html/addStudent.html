@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>添加学生</title>
+    <meta name="description" content="这是一个关于-添加学生-的iframe页面" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="container-fluid bg-light">
+      <br />
+      <div class="bg-white p-4 border-radius" mb-4>
+        <h5>添加学生</h5>
+        <hr />
+        <form>
+          <div class="form-group">
+            <label for="add-usernme">姓名:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="add-usernme"
+              placeholder="大大龙"
+            />
+          </div>
+          <div class="form-group">
+            <label for="add-sex" class="control-label">性别:&nbsp;&nbsp;</label>
+            <input
+              type="radio"
+              class="control-label radio-sex"
+              value="男"
+              name="add-sex"
+              checked
+            />男&nbsp;&nbsp;&nbsp;&nbsp;
+            <input
+              type="radio"
+              class="control-label radio-sex"
+              value="女"
+              name="add-sex"
+            />女
+          </div>
+          <div class="form-group">
+            <label for="add-grade">年级:</label>
+            <select class="form-control" id="add-grade">
+              <option value="">请选择</option>
+              <option value="大一">大一</option>
+              <option value="大二">大二</option>
+              <option value="大三">大三</option>
+              <option value="大四">大四</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="add-tel">联系电话:</label>
+            <input type="text" class="form-control" id="add-tel" />
+          </div>
+          <div class="form-group">
+            <label for="add-academy">院系:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="add-academy"
+              placeholder="计算机"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary float-right"
+            onclick="toAdd()"
+          >
+            提交
+          </button>
+          <br />
+        </form>
+      </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom bg-light">
+      <div class="container">
+        <h5 class="text-secondary">学校管理系统</h5>
+        <div mr-auto>
+          <p><small>In 2019 Theme designed by dadalong</small></p>
+        </div>
+      </div>
+    </nav>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+      window.addEventListener(
+        "message",
+        function(e) {
+          console.log("foo say: " + e.data.a);
+          e.source.postMessage("get", "*");
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

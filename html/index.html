@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>学校管理系统</title>
+    <meta
+      name="description"
+      content="尝试用BootStrap框架构建学校管理系统前端页面"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <!-- 导航栏部分 -->
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark collapse-in">
+      <a class="navbar-brand" href="#"><b>学校管理系统</b></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="myWork.html" target="targetIframe"
+              >&nbsp;&nbsp;首页&nbsp;&nbsp;</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">&nbsp;&nbsp;反馈&nbsp;&nbsp;</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"
+              >&nbsp;&nbsp;帮助&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a
+            >
+          </li>
+          <li><img class="head-pic" src="../img/dadalong.jpg" alt="头像" /></li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbardrop"
+              data-toggle="dropdown"
+            >
+              大大龙
+            </a>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                href="settings.html"
+                target="targetIframe"
+                >设置</a
+              >
+              <a class="dropdown-item" href="../login.html">退出</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br />
+    <!-- 侧边菜单栏部分 -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-1 col-sm-2 col-md-2">
+          <div class="list-group">
+            <a
+              href="myWork.html"
+              target="targetIframe"
+              class="list-group-item list-group-item-action active"
+              >我的工作台</a
+            >
+            <a
+              href="students.html"
+              target="targetIframe"
+              class="list-group-item list-group-item-action"
+              >学生管理</a
+            >
+            <a
+              href="tests.html"
+              target="targetIframe"
+              class="list-group-item list-group-item-action"
+              >试卷管理</a
+            >
+            <a
+              href="addStudent.html"
+              target="targetIframe"
+              class="list-group-item list-group-item-action"
+              >添加学生</a
+            >
+            <a
+              href="settings.html"
+              target="targetIframe"
+              class="list-group-item list-group-item-action"
+              >个人设置</a
+            >
+          </div>
+        </div>
+        <!-- 正文部分，根据侧边菜单栏的选中内容显示相应正文内容 -->
+        <div class="col-xs-11 col-sm-10 clo-md-10">
+          <iframe
+            class="iframe-class"
+            id="myIframe"
+            frameborder="no"
+            scrolling="no"
+            src="myWork.html"
+            name="targetIframe"
+            style="min-height: 500px;"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+      // var myIframe = document.getElementById("myIframe").contentDocument;
+
+      // var addUsername = myIframe.getElementById("add-usernme").value;
+      // var addSex = myIframe.getElementById("add-sex").value;
+      // var addGrade = myIframe.getElementById("add-grade").value;
+      // var addAcademy = myIframe.getElementById("add-academy").value;
+
+      // function toAdd() {}
+
+      window.onload = function() {
+        var myIframe = document.querySelector("#myIframe");
+        myIframe.contentWindow.postMessage({ a: 1 }, "*");
+      };
+      window.addEventListener(
+        "message",
+        function(e) {
+          console.log("bar say: " + e.data);
+        },
+        false
+      );
+    </script>
+
+    <!-- <script>
+      function iframeHeight() {
+        var myIframe = document.getElementById("myIframe");
+        myIframe.width = "100%";
+        myIframe.height = document.documentElement.scrollHeight + 20;
+      }
+      window.onresize = function() {
+        iframeHeight();
+      };
+      $(function() {
+        iframeHeight();
+      });
+    </script> -->
+  </body>
+</html>

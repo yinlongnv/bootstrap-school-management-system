@@ -1,0 +1,56 @@
+/* 顶部导航栏头像样式 */
+.head-pic {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+/* iframe样式 */
+.iframe-class {
+  width: 100%;
+  height: 1050px;
+}
+/* myWork.html中卡片框小图标背景样式 */
+.img-card {
+  height: 60px;
+  width: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+}
+/* myWork.html中卡片框小图标样式 */
+.img-card img {
+  height: 30px;
+  width: 30px;
+}
+/* myWork.html中卡片框样式 */
+.border-radius {
+  border-radius: 10px;
+}
+/* 图标操作样式 */
+a img {
+  width: 15px;
+  height: 15px;
+}
+/* 列表文字居中样式 */
+.text-center {
+  margin: auto 0;
+}
+/* 登录页面背景图样式 */
+.login-bg {
+  background: url(../img/bg.jpg) no-repeat;
+  background-size: 100%;
+}
+/* 登录界面一条线样式 */
+.login-line {
+  border-top: 1px rgb(252, 226, 226) solid;
+}
+/* 登录界面页脚样式 */
+.container .login-footer {
+  margin: 0 auto;
+  text-align: center;
+}
+/* 登录框样式 */
+.login-card {
+  border-radius: 10px;
+}

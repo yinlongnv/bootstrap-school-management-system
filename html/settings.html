@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>个人设置</title>
+    <meta name="description" content="这是一个关于-个人设置-的iframe页面" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/fileinput.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="container-fluid bg-light">
+      <br />
+      <div class="bg-white p-4 border-radius">
+        <h5>个人设置</h5>
+        <hr />
+        <form>
+          <div class="form-group">
+            <label for="person-name">姓名:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="person-name"
+              placeholder="大大龙"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="person-sex" class="control-label"
+              >性别:&nbsp;&nbsp;</label
+            >
+            <input
+              type="radio"
+              class="control-label"
+              value="男"
+              name="person-sex"
+              checked
+            />男&nbsp;&nbsp;&nbsp;&nbsp;
+            <input
+              type="radio"
+              class="control-label"
+              value="女"
+              name="person-sex"
+            />女
+          </div>
+          <div class="form-group">
+            <label for="person-email">邮件:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="person-email"
+              placeholder="123456789@qq.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="person-web">网站地址:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="person-web"
+              placeholder="https://www.baidu.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="person-github">Github:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="person-github"
+              placeholder="https://github.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="person-twitter">Twitter:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="person-twitter"
+              placeholder="https://twitter.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="person-description">自我描述:</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              id="person-description"
+              placeholder="请输入描述..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary float-right">
+            更新设置
+          </button>
+          <br />
+        </form>
+      </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom bg-light">
+      <div class="container">
+        <h5 class="text-secondary">学校管理系统</h5>
+        <div mr-auto>
+          <p><small>In 2019 Theme designed by dadalong</small></p>
+        </div>
+      </div>
+    </nav>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

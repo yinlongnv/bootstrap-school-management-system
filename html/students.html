@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>学生管理</title>
+    <meta name="description" content="这是一个关于-学生管理-的iframe页面" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <div class="container-fluid bg-light">
+      <br />
+      <!-- 搜索区域 -->
+      <div class="bg-white p-4 border-radius">
+        <form class="form-inline">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group mb-4">
+                  <label for="schoolSelect">学校:&nbsp;&nbsp;</label>
+                  <select class="form-control input-width" id="schoolSelect">
+                    <option value="">请选择</option>
+                    <option value="浙江大学">浙江大学</option>
+                    <option value="上海复旦">上海复旦</option>
+                    <option value="中山大学">中山大学</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group mb-4">
+                  <label for="schoolSelect">院系:&nbsp;&nbsp;</label>
+                  <select class="form-control input-width" id="schoolSelect">
+                    <option value="">请选择</option>
+                    <option value="计算机学院">计算机学院</option>
+                    <option value="设计学院">设计学院</option>
+                    <option value="经管学院">经管学院</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group mb-4">
+                  <label for="u-class">班级:&nbsp;&nbsp;</label>
+                  <input type="text" class="form-control" id="u-class" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="u-name">姓名:&nbsp;&nbsp;</label>
+              <input type="text" class="form-control" id="u-name" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="u-tel">电话:&nbsp;&nbsp;</label>
+              <input type="text" class="form-control" id="u-tel" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="u-role">角色:&nbsp;&nbsp;</label>
+              <input type="text" class="form-control" id="u-role" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- 学生列表部分 -->
+      <br />
+      <div class="bg-white border-radius p-4">
+        <p><b>学生列表</b></p>
+        <div>
+          <a href="#" class="btn btn-primary">+&nbsp;添加学生</a>
+          <a href="#" class="btn btn-primary float-right" disabled>批量删除</a>
+        </div>
+        <br />
+        <table class="table table-bordered table-hover">
+          <thead class="bg-light">
+            <tr>
+              <th>
+                <input type="checkbox" />
+              </th>
+              <th>序号</th>
+              <th>姓名</th>
+              <th>学校</th>
+              <th>院校</th>
+              <th>班级</th>
+              <th>联系电话</th>
+              <th>角色</th>
+              <th>启动/停用</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td>1</td>
+              <td>王尼玛1</td>
+              <td>浙江大学</td>
+              <td>计算机</td>
+              <td>1</td>
+              <td>187xxxx1230</td>
+              <td>学生</td>
+              <td>
+                &nbsp;&nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="启动"
+                  data-toggle="modal"
+                  data-target="#startModal"
+                  ><img src="../img/wangchengw.png" alt="启动"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="startModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="停用"
+                  data-toggle="modal"
+                  data-target="#stopModal"
+                  ><img src="../img/sanc.png" alt="停用"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="stopModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  title="编辑"
+                  data-toggle="modal"
+                  data-target="#editModal"
+                >
+                  <img src="../img/bianji.png" alt="编辑"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="editModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框头部 -->
+                      <div class="modal-header">
+                        <span class="modal-title">编辑学生信息</span>
+                        <span class="close" data-dismiss="modal">&times;</span>
+                      </div>
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        模态框内容..
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          完成
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;
+                <a
+                  href="#"
+                  title="删除"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  ><img src="../img/shangchu.png" alt="删除"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="deleteModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        确认删除该学生信息?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          删除
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td>1</td>
+              <td>王尼玛1</td>
+              <td>浙江大学</td>
+              <td>计算机</td>
+              <td>1</td>
+              <td>187xxxx1230</td>
+              <td>学生</td>
+              <td>
+                &nbsp;&nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="启动"
+                  data-toggle="modal"
+                  data-target="#startModal"
+                  ><img src="../img/wangchengw.png" alt="启动"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="startModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="停用"
+                  data-toggle="modal"
+                  data-target="#stopModal"
+                  ><img src="../img/sanc.png" alt="停用"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="stopModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  title="编辑"
+                  data-toggle="modal"
+                  data-target="#editModal"
+                >
+                  <img src="../img/bianji.png" alt="编辑"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="editModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框头部 -->
+                      <div class="modal-header">
+                        <span class="modal-title">编辑学生信息</span>
+                        <span class="close" data-dismiss="modal">&times;</span>
+                      </div>
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        模态框内容..
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          完成
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;
+                <a
+                  href="#"
+                  title="删除"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  ><img src="../img/shangchu.png" alt="删除"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="deleteModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        确认删除该学生信息?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          删除
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td>1</td>
+              <td>王尼玛1</td>
+              <td>浙江大学</td>
+              <td>计算机</td>
+              <td>1</td>
+              <td>187xxxx1230</td>
+              <td>学生</td>
+              <td>
+                &nbsp;&nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="启动"
+                  data-toggle="modal"
+                  data-target="#startModal"
+                  ><img src="../img/wangchengw.png" alt="启动"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="startModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="停用"
+                  data-toggle="modal"
+                  data-target="#stopModal"
+                  ><img src="../img/sanc.png" alt="停用"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="stopModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  title="编辑"
+                  data-toggle="modal"
+                  data-target="#editModal"
+                >
+                  <img src="../img/bianji.png" alt="编辑"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="editModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框头部 -->
+                      <div class="modal-header">
+                        <span class="modal-title">编辑学生信息</span>
+                        <span class="close" data-dismiss="modal">&times;</span>
+                      </div>
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        模态框内容..
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          完成
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;
+                <a
+                  href="#"
+                  title="删除"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  ><img src="../img/shangchu.png" alt="删除"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="deleteModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        确认删除该学生信息?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          删除
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td>1</td>
+              <td>王尼玛1</td>
+              <td>浙江大学</td>
+              <td>计算机</td>
+              <td>1</td>
+              <td>187xxxx1230</td>
+              <td>学生</td>
+              <td>
+                &nbsp;&nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="启动"
+                  data-toggle="modal"
+                  data-target="#startModal"
+                  ><img src="../img/wangchengw.png" alt="启动"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="startModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="停用"
+                  data-toggle="modal"
+                  data-target="#stopModal"
+                  ><img src="../img/sanc.png" alt="停用"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="stopModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  title="编辑"
+                  data-toggle="modal"
+                  data-target="#editModal"
+                >
+                  <img src="../img/bianji.png" alt="编辑"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="editModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框头部 -->
+                      <div class="modal-header">
+                        <span class="modal-title">编辑学生信息</span>
+                        <span class="close" data-dismiss="modal">&times;</span>
+                      </div>
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        模态框内容..
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          完成
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;
+                <a
+                  href="#"
+                  title="删除"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  ><img src="../img/shangchu.png" alt="删除"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="deleteModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        确认删除该学生信息?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          删除
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" />
+              </td>
+              <td>1</td>
+              <td>王尼玛1</td>
+              <td>浙江大学</td>
+              <td>计算机</td>
+              <td>1</td>
+              <td>187xxxx1230</td>
+              <td>学生</td>
+              <td>
+                &nbsp;&nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="启动"
+                  data-toggle="modal"
+                  data-target="#startModal"
+                  ><img src="../img/wangchengw.png" alt="启动"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="startModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;&nbsp;
+                <a
+                  href="#"
+                  title="停用"
+                  data-toggle="modal"
+                  data-target="#stopModal"
+                  ><img src="../img/sanc.png" alt="停用"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="stopModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        是否停用该学生账户?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          确定
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  title="编辑"
+                  data-toggle="modal"
+                  data-target="#editModal"
+                >
+                  <img src="../img/bianji.png" alt="编辑"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="editModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框头部 -->
+                      <div class="modal-header">
+                        <span class="modal-title">编辑学生信息</span>
+                        <span class="close" data-dismiss="modal">&times;</span>
+                      </div>
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        模态框内容..
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          完成
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                &nbsp;
+                <a
+                  href="#"
+                  title="删除"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  ><img src="../img/shangchu.png" alt="删除"
+                /></a>
+                <!-- 模态框 -->
+                <div class="modal fade" id="deleteModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <!-- 模态框主体 -->
+                      <div class="modal-body">
+                        确认删除该学生信息?
+                      </div>
+                      <!-- 模态框底部 -->
+                      <div class="modal-footer">
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          删除
+                        </a>
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          data-dismiss="modal"
+                        >
+                          取消
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 分页栏部分 -->
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#">&nbsp;&lt;&nbsp上一页</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">下一页&nbsp;&gt;&nbsp;</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <!-- 页脚部分 -->
+    <nav class="navbar navbar-default navbar-fixed-bottom bg-light">
+      <div class="container">
+        <h5 class="text-secondary">学校管理系统</h5>
+        <div mr-auto>
+          <p><small>In 2019 Theme designed by dadalong</small></p>
+        </div>
+      </div>
+    </nav>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

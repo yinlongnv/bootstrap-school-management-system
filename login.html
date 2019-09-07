@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>学校管理系统</title>
+    <meta
+      name="description"
+      content="尝试用BootStrap框架构建学校管理系统登录页面"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body class="login-bg">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <!-- 导航栏部分 -->
+    <nav class="navbar navbar-expand-md navbar-dark collapse-in">
+      <a class="navbar-brand text-primary" href="./html/index.html"
+        ><b>学校管理系统</b></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"></li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-primary"
+              href="#"
+              id="navbardrop"
+              data-toggle="dropdown"
+            >
+              <img src="./img/ball.png" alt="地球图标" />
+              中国站
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./html/index.html"
+                >International</a
+              >
+              <a class="dropdown-item" href="./html/index.html">Japanese</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-primary" href="./html/index.html"
+              >&nbsp;&nbsp;首页</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- 中心部分 -->
+    <div class="login-line"></div>
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- 文字介绍部分 -->
+        <div class="col-8 col-md-8 col-sm-4">
+          <div class="text-muted text-center">
+            <h1><b>学生管理系统</b></h1>
+            <br />
+            <div>
+              <h4>管控一体化的整合式服务平台</h4>
+              <h4>一起解构数字世界，碰撞科技创新思想</h4>
+            </div>
+          </div>
+        </div>
+        <!-- 登录框 -->
+        <div class="col-4 col-md-4 col-sm-8 col-xs-12">
+          <div class="bg-white p-4 m-6 login-card text-center">
+            <form id="login-panel">
+              <div class="p-2">
+                <h3>登录</h3>
+              </div>
+              <div class="form-group p-1">
+                <label for="login-username" class="sr-only">用户名:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="login-username"
+                  placeholder="用户名"
+                />
+                <span
+                  class="text-danger float-left"
+                  id="login-username-tips"
+                  style="display: none"
+                  ><small>必填</small></span
+                >
+              </div>
+              <div class="form-group p-1">
+                <label for="login-password" class="sr-only">密码:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="login-password"
+                  placeholder="密码"
+                />
+                <span
+                  class="text-danger float-left"
+                  id="login-password-tips"
+                  style="display: none"
+                  ><small>必填</small></span
+                >
+              </div>
+              <div class="m-2 float-right">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" />记住账号
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-block btn-primary m-1"
+                onclick="toLogin()"
+              >
+                登录
+              </button>
+              <a
+                class="btn"
+                href="#"
+                id="turn-register"
+                onclick="turnRegister()"
+                ><small>立即注册</small></a
+              >
+            </form>
+            <!-- 注册框 -->
+            <form id="register-panel" style="display: none">
+              <div class="p-2">
+                <h3>注册</h3>
+              </div>
+              <div class="form-group p-1">
+                <label for="register-username" class="sr-only">用户名:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="register-username"
+                  placeholder="用户名"
+                />
+                <span
+                  class="text-danger float-left"
+                  id="register-username-tips"
+                  style="display: none"
+                  ><small>请输入正确的用户名</small></span
+                >
+              </div>
+              <div class="form-group p-1">
+                <label for="register-email" class="sr-only">邮箱:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="register-email"
+                  placeholder="邮箱"
+                />
+                <span
+                  class="text-danger float-left"
+                  id="register-email-tips"
+                  style="display: none"
+                  ><small>请输入正确的邮箱</small></span
+                >
+              </div>
+              <div class="form-group p-1">
+                <label for="register-password" class="sr-only">密码:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="register-password"
+                  placeholder="至少8位密码"
+                />
+                <span
+                  class="text-danger float-left"
+                  id="register-password-tips"
+                  style="display: none"
+                  ><small>请输入正确的密码</small></span
+                >
+              </div>
+              <div class="form-group p-1">
+                <label for="register-check-password" class="sr-only"
+                  >确认密码:</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="register-check-password"
+                  placeholder="确认密码"
+                />
+                <span
+                  class="text-danger float-left"
+                  id="register-check-tips"
+                  style="display: none"
+                  ><small>请输入正确的密码</small></span
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-block btn-primary m-1"
+                onclick="toRegister()"
+              >
+                注册
+              </button>
+              <a class="btn" href="#" id="turn-login" onclick="turnLogin()"
+                ><small>使用已有帐户登录</small></a
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚部分 -->
+    <nav class="navbar navbar-default fixed-bottom">
+      <div class="container">
+        <div class="login-footer">
+          <a href="./html/index.html">帮助</a>
+          <a href="./html/index.html">隐私</a>
+          <a href="./html/index.html">条款</a>
+          <p><small>In 2019 Theme designed by dadalong</small></p>
+        </div>
+      </div>
+    </nav>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+      var login = document.getElementById("login-panel");
+      var register = document.getElementById("register-panel");
+
+      var registerUsername = document.getElementById("register-username").value;
+      var registerEmail = document.getElementById("register-email").value;
+      var registerPassword = document.getElementById("register-password").value;
+      var registerCheckPassword = document.getElementById(
+        "register-check-password"
+      ).value;
+
+      var registerUsernameTips = document.getElementById(
+        "register-username-tips"
+      );
+      var registerPasswordTips = document.getElementById(
+        "register-password-tips"
+      );
+      var registerCheckTips = document.getElementById("register-check-tips");
+      var registerEmailTips = document.getElementById("register-email-tips");
+
+      var loginUsername = document.getElementById("login-username").value;
+      var loginPassword = document.getElementById("login-password").value;
+
+      var loginUsernameTips = document.getElementById("login-username-tips");
+      var loginPasswordTips = document.getElementById("login-password-tips");
+      // 隐藏注册框，显示登录框
+      function turnLogin() {
+        login.style.display = "";
+        register.style.display = "none";
+      }
+      // 隐藏登录框，显示注册框
+      function turnRegister() {
+        login.style.display = "none";
+        register.style.display = "";
+      }
+      // 点击登录按钮事件
+      function toLogin() {
+        if (loginUsername == "") {
+          loginUsernameTips.style.display = "";
+        }
+        if (loginPassword == "") {
+          loginPasswordTips.style.display = "";
+        }
+      }
+      // 点击注册按钮事件
+      function toRegister() {
+        if (registerUsername == "") {
+          registerUsernameTips.style.display = "";
+        }
+        if (registerPassword.length < 8) {
+          registerPasswordTips.style.display = "";
+        }
+        if (registerEmail == "") {
+          registerEmailTips.style.display = "";
+        }
+        if (registerCheckPassword == "") {
+          registerCheckTips.style.display = "";
+        }
+        if (registerCheckPassword != registerPassword) {
+          alert("两次密码输入不一致！");
+        }
+      }
+    </script>
+  </body>
+</html>
